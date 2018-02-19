@@ -1,0 +1,7 @@
+FROM continuumio/miniconda3:4.3.27
+MAINTAINER "Georg Walther (georg.walther@exxeta.com)"
+
+COPY ./greetings /greetings
+
+RUN pip install -r greetings/requirements.txt
+RUN python greetings/setup.py install

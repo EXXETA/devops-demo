@@ -1,0 +1,76 @@
+# Georg Walther (georg.walther@exxeta.com)
+
+version: '3.5'
+
+networks:
+  awesome_app:
+    driver: bridge
+
+services:
+  mongo:
+    image: mongo:3.7.1-jessie
+    networks:
+      - awesome_app
+
+  graphite:
+    image: graphiteapp/graphite-statsd
+    networks:
+      - awesome_app
+    ports:
+      - '8080:80'
+      - '2003-2004:2003-2004'
+      - '2023-2024:2023-2024'
+      - '8125:8125/udp'
+      - '8126:8126'
+
+  grafana:
+    image: grafana/grafana:latest
+    networks:
+      - awesome_app
+    ports:
+      - '3000:3000'
+
+  maths:
+    build:
+      context: .
+      dockerfile: Dockerfile_maths
+    image: maths
+    networks:
+      - awesome_app
+    depends_on:
+      - mongo
+      - graphite
+    ports:
+      - '5001:5000'
+    environment:
+      - FLASK_DEBUG=1
+    command: python /maths/maths/service.py
+
+  greetings:
+    build:
+      context: .
+      dockerfile: Dockerfile_greetings
+    image: greetings
+    networks:
+      - awesome_app
+    ports:
+      - '5002:5000'
+    environment:
+      - FLASK_DEBUG=1
+    command: python /greetings/greetings/service.py
+
+  awesome_app:
+    build:
+      context: .
+      dockerfile: Dockerfile_app
+    image: awesome_app
+    networks:
+      - awesome_app
+    depends_on:
+      - maths
+      - greetings
+    ports:
+      - '5000:5000'
+    environment:
+      - FLASK_DEBUG=1
+    command: python /awesome_app/awesome_app/app.py

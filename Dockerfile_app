@@ -1,0 +1,7 @@
+FROM continuumio/miniconda3:4.3.27
+MAINTAINER "Georg Walther (georg.walther@exxeta.com)"
+
+COPY ./awesome_app /awesome_app
+
+RUN pip install -r awesome_app/requirements.txt
+RUN python awesome_app/setup.py install
