@@ -35,8 +35,12 @@ Run tests
 
     $ python -m pytest greetings -k tests
 
-## Build Docker images
+## Test services locally
 
 To build all Docker images:
 
     $ docker-compose build
+
+Now run the services locally:
+
+    $ docker-compose up
