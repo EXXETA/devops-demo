@@ -1,5 +1,9 @@
 # Principles of DevOps Demo
 
+In this project we demo a couple of techniques informed by the three pillars of DevOps:
+flow, feedback, and continual experimentation.
+
+
 ## Setup
 
 This demo was developed and tested on OSX.
