@@ -9,5 +9,6 @@ except ImportError:
 setup(
     name='awesome_app',
     version='0.0.1',
-    packages=['awesome_app']
+    packages=['awesome_app'],
+    include_package_data=True
 )

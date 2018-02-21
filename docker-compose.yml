@@ -7,8 +7,8 @@ networks:
     driver: bridge
 
 services:
-  mongo:
-    image: mongo:3.7.1-jessie
+  redis:
+    image: redis:4.0.8
     networks:
       - awesome_app
 
@@ -38,7 +38,6 @@ services:
     networks:
       - awesome_app
     depends_on:
-      - mongo
       - graphite
     ports:
       - '5001:5000'
@@ -53,6 +52,8 @@ services:
     image: greetings
     networks:
       - awesome_app
+    depends_on:
+      - redis
     ports:
       - '5002:5000'
     environment:
@@ -73,4 +74,4 @@ services:
       - '5000:5000'
     environment:
       - FLASK_DEBUG=1
-    command: python /awesome_app/awesome_app/app.py
+    command: bash -c 'cd /awesome_app/awesome_app; python app.py'
