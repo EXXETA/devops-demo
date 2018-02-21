@@ -4,7 +4,7 @@
 
 This demo was developed and tested on OSX.
 
-Make certain you have Docker installed in recent version:
+Make certain you have Docker installed in a recent version:
 
     $ docker --version
     Docker version 17.12.0-ce, build c97c6d6
