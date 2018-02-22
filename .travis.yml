@@ -8,8 +8,6 @@ os:
 python:
   - "3.5"
   - "3.6"
-  - "3.7"
-  - "nightly"
 
 env:
   - DOCKER_COMPOSE_VERSON=1.19.0
