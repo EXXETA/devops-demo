@@ -24,7 +24,7 @@ services:
       - '8126:8126'
 
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:5.0.0-beta4
     networks:
       - awesome_app
     ports:
