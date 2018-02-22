@@ -20,7 +20,11 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
+  - docker-compose --version
+  - docker-compose pull
   - docker-compose build
+  - docker-compose start
+  - docker ps
 
 install:
   - pip install -r greetings/requirements.txt
@@ -29,6 +33,3 @@ install:
 before_script:
   - flake8 --show-source .
   - py.test . -k greetings
-
-script:
-  - docker-compose up
