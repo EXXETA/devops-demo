@@ -1,0 +1,36 @@
+sudo: required
+
+language: python
+
+os:
+  - linux
+
+python:
+  - "3.5"
+  - "3.6"
+  - "3.7"
+  - "nightly"
+
+env:
+  - DOCKER_COMPOSE_VERSON=1.19.0
+
+services:
+  - docker
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - docker-compose build
+
+install:
+  - pip install -r greetings/requirements.txt
+  - pip install pytest pytest-flake8
+
+before_script:
+  - flake8 --show-source .
+  - py.test . -k greetings
+
+script:
+  - docker-compose up
