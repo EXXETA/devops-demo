@@ -18,9 +18,8 @@ services:
 before_install:
   - pip install docker-compose==1.19.0
   - docker-compose --version
-  - docker-compose pull
   - docker-compose build
-  - docker-compose start
+  - docker-compose up
   - docker ps
 
 install:
