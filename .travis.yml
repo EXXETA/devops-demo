@@ -19,7 +19,7 @@ before_install:
   - pip install docker-compose==1.19.0
   - docker-compose --version
   - docker-compose build
-  - docker-compose up
+  - docker-compose up -d
   - docker ps
 
 install:
