@@ -39,4 +39,4 @@ before_script:
 
 script:
   - pytest . -k greetings
-  - pytest --driver Chrome . -s
+  - pytest --driver Chrome .
