@@ -1,3 +1,5 @@
+dist: trusty
+
 sudo: false
 
 notifications:
@@ -21,11 +23,16 @@ before_install:
   - docker-compose build
   - docker-compose up -d
   - docker ps
+  - wget https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip -O /tmp/chromedriver
+  - chmod 777 /tmp/chromedriver
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 install:
   - pip install -r greetings/requirements.txt
   - pip install -r requirements_test.txt
+
+env:
+  - CHROME_DRIVER_PATH=/tmp/chromedriver
 
 before_script:
   - flake8 --show-source .
