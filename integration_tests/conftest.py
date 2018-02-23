@@ -10,6 +10,7 @@ from selenium.webdriver.chrome.options import Options
 def chrome():
     chrome_options = Options()
     chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
 
     try:
         driver = webdriver.Chrome(
