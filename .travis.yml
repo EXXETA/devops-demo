@@ -9,9 +9,6 @@ notifications:
 
 language: python
 
-os:
-  - linux
-
 python:
   - "3.5"
   - "3.6"
