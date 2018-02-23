@@ -35,6 +35,7 @@ install:
 
 env:
   - CHROME_DRIVER_PATH=/tmp/chromedriver
+  - DISPLAY=':99.0'
 
 before_script:
   - flake8 --show-source .
