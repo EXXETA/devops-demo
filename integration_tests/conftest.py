@@ -1,3 +1,5 @@
+import os
+
 import pytest
 
 from selenium import webdriver
@@ -9,8 +11,14 @@ def chrome():
     chrome_options = Options()
     chrome_options.add_argument('--headless')
 
-    driver = webdriver.Chrome(
-        options=chrome_options
-    )
+    try:
+        driver = webdriver.Chrome(
+            os.environ['CHROME_DRIVER_PATH'],
+            options=chrome_options
+        )
+    except KeyError:
+        driver = webdriver.Chrome(
+            options=chrome_options
+        )
 
     return driver
