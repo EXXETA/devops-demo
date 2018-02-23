@@ -2,7 +2,7 @@ dist: trusty
 addons:
   chrome: stable
 
-sudo: false
+sudo: required
 
 notifications:
   - email: false
