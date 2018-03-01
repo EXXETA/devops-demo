@@ -5,6 +5,14 @@
 In this project we demo a couple of techniques informed by the three pillars of DevOps:
 flow, feedback, and continual experimentation.
 
+## Table of contents
+
+* [General Setup](#setup)
+* [Run microservices locally](#test-services-locally)
+* [Microservice architecture explained](#a-tour-of-our-services)
+* [Online A/B test](#greetings)
+* [KPI logging with Graphite and Grafana](#mathematics)
+* [Continuous integration in the cloud](#continuous-testing--integration)
 
 ## Setup
 
