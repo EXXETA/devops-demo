@@ -172,3 +172,6 @@ Be aware that we run both small unit tests (`greetings/greetings/test_greetings.
 TravisCI cloud and more involved integration tests (`integration_tests/test_awesome_app.py`)
 where we open a headless (windowless) Google Chrome browser, navigate to our Awesome App interface,
 and check that the browser sees what we expect to see - all in the TravisCI cloud.
+
+This integration of GitHub with TravisCI presents our developers with rapid feedback on their work
+(in line with the second way of DevOps).
