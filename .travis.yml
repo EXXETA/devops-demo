@@ -24,6 +24,7 @@ before_install:
   - docker ps
   - wget https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip -O /tmp/chromedriver
   - chmod 777 /tmp/chromedriver
+  - export PATH=$PATH:/tmp/
 
 install:
   - pip install -r greetings/requirements.txt
@@ -36,5 +37,6 @@ before_script:
   - flake8 --show-source .
 
 script:
+  - echo $PATH
   - pytest . -k greetings
   - pytest --driver Chrome .
