@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/EXXETA/devops-demo.svg?branch=master)](https://travis-ci.org/EXXETA/devops-demo)
+
 # Principles of DevOps Demo
 
 In this project we demo a couple of techniques informed by the three pillars of DevOps:
