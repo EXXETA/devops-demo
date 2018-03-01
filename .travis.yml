@@ -25,7 +25,6 @@ before_install:
   - wget https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip -O /tmp/chromedriver.zip
   - unzip /tmp/chromedriver.zip -d /tmp
   - chmod 777 /tmp/chromedriver
-  - export PATH=$PATH:/tmp/
 
 install:
   - pip install -r greetings/requirements.txt
