@@ -63,14 +63,14 @@ To shut all services down again:
 
     $ docker-compose down
 
-## A tour of the services
+## A tour of our services
 
 Now that our services are running (`docker-compose up`)
 let us take a look at the various services we have and how they interact.
 
 Imagine we worked on an exciting new app - a really friendly calculator.
 Our calculator implements all the important arithmetic operations and presents
-the results together with a friendly personal greeting.
+the results together with a friendly personalized greeting.
 
 Our calculator app therefore has three main components:
 A main app with a user interface (this is our Awesome App), a greetings module that generates
@@ -91,7 +91,7 @@ Note that our `docker-compose.yml` file describes this structure in detail.
 Our Awesome App (the main app interface) implements a simple endpoint
 (see `awesome_app/awesome_app/app.py`) which forwards the user's
 name to the `greetings` service and the input variables to the `maths` service.
-Once the `greetings` and `maths` service respond the `awesome_app` service
+Once the `greetings` and `maths` services respond, the `awesome_app` service
 fills all the information it has into an interface template
 (`awesome_app/awesome_app/templates/index.html`) to be displayed in the user's browser.
 
@@ -114,12 +114,12 @@ to the user's taste:
 The `awesome_app` interface presents a `Like` button that sends a `POST` request to the
 greeting service thus sending a signal that the user enjoyed the greeting they were presented
 with. The greetings service then stores this positive signal in a Redis backend
-(a popular, fast key-value store used in numerous web applications akin to ours)
+(a popular, fast key-value data store used in numerous web applications akin to ours)
 by incrementing the respective greeting counter by one.
 
 Upon requesting a personalized greeting from our greeting service we return the
 best-performing greeting 90% of the time (`exploitation`).
-For 10% of the greeting requests we receive we return a randomly chosen personalized
+For 10% of the greeting requests we return a randomly chosen personalized
 greeting in order to explore whether the user's preference has changed (`exploration`).
 See `greetings/greetings/service.py` for details.
 
@@ -139,8 +139,8 @@ Our mathematics service implements the arithmetic operations desired by our user
 The team maintaining the mathematics service is interested in seeing which arithmetic operations
 our users are most interested in.
 To this end, they attached their service to a StatsD / Graphite service which allows them
-to easily monitor the number of times each operation is invoked.
-Here the team increments a corresponding counter every time an operation is invoked.
+to easily monitor the number of times each arithmetic operation is invoked.
+Here the team increments a corresponding counter every time an arithmetic operation is invoked.
 
 This now allows our mathematics team to monitor in real-time service-level metrics in their
 Graphite web interface:
