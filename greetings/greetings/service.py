@@ -24,7 +24,7 @@ def greeting(name):
 
     logging.info('Hello likes {}, howdy likes {}'.format(hello_likes, howdy_likes))
 
-    if random() <= .1:
+    if random() <= .1 or hello_likes == howdy_likes:
         # explore greeting performance
         logging.info('Exploring greetings ...')
         greeting_generator = choice([hello, howdy])
