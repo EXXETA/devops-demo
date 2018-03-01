@@ -22,7 +22,9 @@ before_install:
   - docker-compose build
   - docker-compose up -d
   - docker ps
-  - wget https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip -O /tmp/chromedriver
+  - wget https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip -O /tmp/chromedriver.zip
+  - cd /tmp
+  - unzip chromedriver.zip
   - chmod 777 /tmp/chromedriver
   - export PATH=$PATH:/tmp/
 
