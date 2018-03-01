@@ -54,3 +54,11 @@ To build all Docker images:
 Now run the services locally:
 
     $ docker-compose up
+
+To see all Docker containers that the above command starts:
+
+    $ docker ps
+
+To shut all services down again:
+
+    $ docker-compose down
