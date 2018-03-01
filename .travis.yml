@@ -1,0 +1,41 @@
+dist: trusty
+addons:
+  chrome: stable
+
+sudo: required
+
+notifications:
+  - email: false
+
+language: python
+
+python:
+  - "3.5"
+  - "3.6"
+
+services:
+  - docker
+
+before_install:
+  - pip install docker-compose==1.19.0
+  - docker-compose --version
+  - docker-compose build
+  - docker-compose up -d
+  - docker ps
+  - wget https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip -O /tmp/chromedriver.zip
+  - unzip /tmp/chromedriver.zip -d /tmp
+  - chmod 777 /tmp/chromedriver
+
+install:
+  - pip install -r greetings/requirements.txt
+  - pip install -r requirements_test.txt
+
+env:
+  - CHROME_DRIVER_PATH=/tmp/chromedriver
+
+before_script:
+  - flake8 --show-source .
+
+script:
+  - pytest . -k greetings
+  - pytest --driver Chrome .

@@ -1,0 +1,9 @@
+<!doctype html>
+<title>The Amazingly Friendly Calculator</title>
+<h1>Welcome to the amazingly friendly calculator!</h1>
+<h2 id="greeting">{{ greeting }}</h2>
+<p id="result">{{ x }} + {{ y }} = {{ result }}</p>
+<p>Click the like button if you enjoyed my greeting.</p>
+<form action="http://localhost:5002/like_greeting" method="POST">
+    <input name="{{ greeting_type }}" type="submit" value="Like!">
+</form>
