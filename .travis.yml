@@ -37,6 +37,5 @@ before_script:
   - flake8 --show-source .
 
 script:
-  - echo $PATH
   - pytest . -k greetings
   - pytest --driver Chrome .
