@@ -18,6 +18,10 @@ flow, feedback, and continual experimentation.
 
 This demo was developed and tested on OSX - it should therefore run just as well
 on Linux operating systems.
+
+For OSX Docker installation instructions, visit
+[https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/).
+
 For how to install and work with Docker (a central component of this sample project)
 on Windows please follow the instructions here:
 [https://docs.docker.com/docker-for-windows/](https://docs.docker.com/docker-for-windows/).
